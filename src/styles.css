@@ -36,6 +36,10 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-sand: var(--sand);
   --color-sand-foreground: var(--sand-foreground);
+  --color-olive: var(--olive);
+  --color-olive-foreground: var(--olive-foreground);
+  --color-olive-muted: var(--olive-muted);
+
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
