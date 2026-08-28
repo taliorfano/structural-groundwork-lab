@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PlannerRouteImport } from './routes/planner'
+import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as CaminhosIndexRouteImport } from './routes/caminhos.index'
+import { Route as DestinosIndexRouteImport } from './routes/destinos.index'
+import { Route as GuiasIndexRouteImport } from './routes/guias.index'
+import { Route as InspiracoesIndexRouteImport } from './routes/inspiracoes.index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PlannerRoute = PlannerRouteImport.update({
+  id: '/planner',
+  path: '/planner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SobreRoute = SobreRouteImport.update({
+  id: '/sobre',
+  path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaminhosIndexRoute = CaminhosIndexRouteImport.update({
+  id: '/caminhos/',
+  path: '/caminhos/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DestinosIndexRoute = DestinosIndexRouteImport.update({
+  id: '/destinos/',
+  path: '/destinos/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuiasIndexRoute = GuiasIndexRouteImport.update({
+  id: '/guias/',
+  path: '/guias/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InspiracoesIndexRoute = InspiracoesIndexRouteImport.update({
+  id: '/inspiracoes/',
+  path: '/inspiracoes/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/planner': typeof PlannerRoute
+  '/sobre': typeof SobreRoute
+  '/caminhos/': typeof CaminhosIndexRoute
+  '/destinos/': typeof DestinosIndexRoute
+  '/guias/': typeof GuiasIndexRoute
+  '/inspiracoes/': typeof InspiracoesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/planner': typeof PlannerRoute
+  '/sobre': typeof SobreRoute
+  '/caminhos': typeof CaminhosIndexRoute
+  '/destinos': typeof DestinosIndexRoute
+  '/guias': typeof GuiasIndexRoute
+  '/inspiracoes': typeof InspiracoesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/planner': typeof PlannerRoute
+  '/sobre': typeof SobreRoute
+  '/caminhos/': typeof CaminhosIndexRoute
+  '/destinos/': typeof DestinosIndexRoute
+  '/guias/': typeof GuiasIndexRoute
+  '/inspiracoes/': typeof InspiracoesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/planner'
+    | '/sobre'
+    | '/caminhos/'
+    | '/destinos/'
+    | '/guias/'
+    | '/inspiracoes/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/planner'
+    | '/sobre'
+    | '/caminhos'
+    | '/destinos'
+    | '/guias'
+    | '/inspiracoes'
+  id:
+    | '__root__'
+    | '/'
+    | '/planner'
+    | '/sobre'
+    | '/caminhos/'
+    | '/destinos/'
+    | '/guias/'
+    | '/inspiracoes/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PlannerRoute: typeof PlannerRoute
+  SobreRoute: typeof SobreRoute
+  CaminhosIndexRoute: typeof CaminhosIndexRoute
+  DestinosIndexRoute: typeof DestinosIndexRoute
+  GuiasIndexRoute: typeof GuiasIndexRoute
+  InspiracoesIndexRoute: typeof InspiracoesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/planner': {
+      id: '/planner'
+      path: '/planner'
+      fullPath: '/planner'
+      preLoaderRoute: typeof PlannerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sobre': {
+      id: '/sobre'
+      path: '/sobre'
+      fullPath: '/sobre'
+      preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/caminhos/': {
+      id: '/caminhos/'
+      path: '/caminhos'
+      fullPath: '/caminhos/'
+      preLoaderRoute: typeof CaminhosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/destinos/': {
+      id: '/destinos/'
+      path: '/destinos'
+      fullPath: '/destinos/'
+      preLoaderRoute: typeof DestinosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guias/': {
+      id: '/guias/'
+      path: '/guias'
+      fullPath: '/guias/'
+      preLoaderRoute: typeof GuiasIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inspiracoes/': {
+      id: '/inspiracoes/'
+      path: '/inspiracoes'
+      fullPath: '/inspiracoes/'
+      preLoaderRoute: typeof InspiracoesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PlannerRoute: PlannerRoute,
+  SobreRoute: SobreRoute,
+  CaminhosIndexRoute: CaminhosIndexRoute,
+  DestinosIndexRoute: DestinosIndexRoute,
+  GuiasIndexRoute: GuiasIndexRoute,
+  InspiracoesIndexRoute: InspiracoesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
