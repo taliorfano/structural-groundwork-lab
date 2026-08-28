@@ -13,6 +13,7 @@ const paths = [
     n: "01",
     name: "História",
     text: "Cultura, história e patrimônio que dão alma a cada lugar.",
+    caption: "Arcos e pedra — a cidade que resistiu ao tempo.",
     image: historia,
     alt: "Ruela histórica de pedra sob um arco antigo",
   },
@@ -20,6 +21,7 @@ const paths = [
     n: "02",
     name: "Sabores",
     text: "Restaurantes, cafés e sabores que contam histórias.",
+    caption: "A mesa como primeiro idioma de um lugar.",
     image: sabores,
     alt: "Prato de massa fresca sobre mesa de cerâmica com luz natural",
   },
@@ -27,6 +29,7 @@ const paths = [
     n: "03",
     name: "Vivências",
     text: "Passeios, atividades e experiências que aproximam você do local.",
+    caption: "O campo trabalhado à mão, no ritmo de quem vive ali.",
     image: vivencias,
     alt: "Vinhedo com ciprestes ao amanhecer",
   },
@@ -34,6 +37,7 @@ const paths = [
     n: "04",
     name: "Conforto",
     text: "Informações práticas para uma viagem tranquila e segura.",
+    caption: "Chegar e sentir que se pode ficar.",
     image: conforto,
     alt: "Porta de entrada de uma pequena hospedaria com vasos de plantas",
   },
@@ -41,6 +45,7 @@ const paths = [
     n: "05",
     name: "Memórias",
     text: "Momentos especiais que ficam para sempre com você.",
+    caption: "A luz do fim do dia — o que a gente leva de volta.",
     image: memorias,
     alt: "Vilarejo no alto da colina ao pôr do sol",
   },
@@ -52,8 +57,11 @@ export function FivePaths() {
       <Container>
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-end">
           <div>
-            <p className="label-editorial text-accent">Nossa forma de viajar</p>
-            <h2 className="text-h2 mt-5 max-w-[16ch]">
+            <div className="flex items-center gap-4">
+              <span className="h-px w-10 bg-accent/70" aria-hidden="true" />
+              <p className="label-editorial text-accent">Nossa forma de viajar</p>
+            </div>
+            <h2 className="text-h2 mt-6 max-w-[16ch]">
               Cinco caminhos.
               <br />
               Uma viagem só sua.
@@ -64,52 +72,59 @@ export function FivePaths() {
             em 5 caminhos para ajudar a descobrir o que faz sentido para você.
           </p>
         </div>
-      </Container>
 
-      {/* Horizontal editorial composition */}
-      <div className="mt-14 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        <div className="flex w-max gap-5 px-5 sm:px-8 lg:w-full lg:px-12">
-          <div className="hidden lg:block lg:w-[max(0px,calc((100vw-1280px)/2))]" aria-hidden="true" />
-          {paths.map((p, i) => (
-            <Link
-              key={p.name}
-              to="/caminhos"
-              className="group relative w-[76vw] shrink-0 sm:w-[46vw] lg:w-auto lg:flex-1"
-            >
-              <div
-                className="relative overflow-hidden rounded-sm"
-                style={{ marginTop: i % 2 === 1 ? "2.5rem" : undefined }}
+        {/* Editorial rows — alternating asymmetry, not a row of cards */}
+        <div className="mt-16 md:mt-20">
+          {paths.map((p, i) => {
+            const reversed = i % 2 === 1;
+            return (
+              <Link
+                key={p.name}
+                to="/caminhos"
+                className="group grid grid-cols-1 items-center gap-6 border-t border-border py-8 md:grid-cols-12 md:gap-10 md:py-10 last:border-b"
               >
-                <img
-                  src={p.image}
-                  alt={p.alt}
-                  loading="lazy"
-                  width={900}
-                  height={1200}
-                  className="aspect-[3/4] w-full object-cover transition-transform duration-700 ease-[var(--ease-editorial)] group-hover:scale-[1.04]"
-                />
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-foreground/45 to-transparent"
-                />
-                <span className="absolute left-4 top-3 font-display text-2xl text-background">
-                  {p.n}
-                </span>
-              </div>
+                <div
+                  className={`md:col-span-5 lg:col-span-5 ${
+                    reversed ? "md:order-2" : "md:order-1"
+                  }`}
+                >
+                  <div className="overflow-hidden rounded-sm">
+                    <img
+                      src={p.image}
+                      alt={p.alt}
+                      loading="lazy"
+                      width={900}
+                      height={640}
+                      className={`w-full object-cover transition-transform duration-700 ease-[var(--ease-editorial)] group-hover:scale-[1.04] ${
+                        i === 0 ? "aspect-[5/4]" : reversed ? "aspect-[3/2]" : "aspect-[4/3]"
+                      }`}
+                    />
+                  </div>
+                  <p className="caption-editorial mt-2.5 text-muted-foreground">{p.caption}</p>
+                </div>
 
-              <div style={{ marginTop: i % 2 === 1 ? "1.25rem" : "1.25rem" }}>
-                <h3 className="font-display text-2xl">{p.name}</h3>
-                <p className="text-meta mt-2 text-muted-foreground">{p.text}</p>
-                <span className="label-editorial mt-4 inline-flex items-center gap-2 text-accent">
-                  Explorar
-                  <ArrowRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-1" />
-                </span>
-              </div>
-            </Link>
-          ))}
-          <div className="hidden lg:block lg:w-[max(0px,calc((100vw-1280px)/2))]" aria-hidden="true" />
+                <div
+                  className={`md:col-span-6 md:col-start-auto ${
+                    reversed ? "md:order-1" : "md:order-2 md:col-start-7"
+                  }`}
+                >
+                  <div className="flex items-baseline gap-5">
+                    <span className="font-display text-4xl leading-none text-accent/80">
+                      {p.n}
+                    </span>
+                    <h3 className="text-h3">{p.name}</h3>
+                  </div>
+                  <p className="mt-4 max-w-[42ch] text-muted-foreground">{p.text}</p>
+                  <span className="label-editorial mt-6 inline-flex items-center gap-2 text-accent">
+                    Explorar o caminho
+                    <ArrowRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-1" />
+                  </span>
+                </div>
+              </Link>
+            );
+          })}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

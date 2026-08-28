@@ -36,6 +36,10 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-sand: var(--sand);
   --color-sand-foreground: var(--sand-foreground);
+  --color-olive: var(--olive);
+  --color-olive-foreground: var(--olive-foreground);
+  --color-olive-muted: var(--olive-muted);
+
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
@@ -83,6 +87,12 @@
   /* Warm Sand — secondary backgrounds, separators */
   --sand: oklch(0.8403 0.0337 74.7);
   --sand-foreground: oklch(0.2741 0.0047 67.6);
+
+  /* Deep Olive — immersive editorial zones (same hue family as --primary) */
+  --olive: oklch(0.3218 0.0288 127.5);
+  --olive-foreground: oklch(0.9653 0.0102 81.8);
+  --olive-muted: oklch(0.9653 0.0102 81.8 / 62%);
+
 
   --destructive: oklch(0.505 0.16 27);
   --destructive-foreground: oklch(0.9653 0.0102 81.8);
@@ -178,8 +188,17 @@
   line-height: 1.4;
 }
 
+/* Editorial photo caption */
+@utility caption-editorial {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  font-style: italic;
+}
+
 /* Reading column for article-like content: 680–760px */
 @utility reading-column {
+
   max-width: 44rem;
   margin-inline: auto;
 }
