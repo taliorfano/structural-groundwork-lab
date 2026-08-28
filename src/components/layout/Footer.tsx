@@ -16,8 +16,8 @@ const brand = [
 
 export function Footer() {
   return (
-    <footer className="mt-24 border-t border-border bg-surface">
-      <Container className="grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr] md:py-20">
+    <footer className="border-t border-border bg-background">
+      <Container className="grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <p className="font-display text-2xl">La Nostra Via</p>
           <p className="mt-3 max-w-xs text-meta text-muted-foreground">

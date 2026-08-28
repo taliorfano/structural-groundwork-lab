@@ -115,10 +115,14 @@
   h2,
   h3 {
     font-family: var(--font-display);
-    font-weight: 400;
-    letter-spacing: -0.01em;
-    line-height: 1.1;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.08;
     text-wrap: balance;
+  }
+
+  .font-display {
+    font-weight: 500;
   }
 
   :focus-visible {
@@ -136,14 +140,18 @@
 
 @utility text-hero {
   font-family: var(--font-display);
-  font-size: clamp(2.625rem, 6vw, 4.75rem); /* 42 → 76px */
-  line-height: 1.04;
+  font-weight: 500;
+  font-size: clamp(3.125rem, 5.6vw, 5.5rem); /* 50 → 88px */
+  line-height: 0.98;
+  letter-spacing: -0.02em;
 }
 
 @utility text-h2 {
   font-family: var(--font-display);
-  font-size: clamp(2.125rem, 4vw, 3.25rem); /* 34 → 52px */
-  line-height: 1.1;
+  font-weight: 500;
+  font-size: clamp(2.375rem, 4.2vw, 3.75rem); /* 38 → 60px */
+  line-height: 1.06;
+  letter-spacing: -0.015em;
 }
 
 @utility text-h3 {

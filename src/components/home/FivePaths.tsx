@@ -88,7 +88,11 @@ export function FivePaths() {
                   height={1200}
                   className="aspect-[3/4] w-full object-cover transition-transform duration-700 ease-[var(--ease-editorial)] group-hover:scale-[1.04]"
                 />
-                <span className="absolute left-4 top-4 font-display text-2xl text-primary-foreground/90 mix-blend-screen">
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-foreground/45 to-transparent"
+                />
+                <span className="absolute left-4 top-3 font-display text-2xl text-background">
                   {p.n}
                 </span>
               </div>

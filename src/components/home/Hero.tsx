@@ -45,7 +45,7 @@ export function Hero() {
         </div>
 
         {/* Photography column */}
-        <div className="relative order-1 min-h-[52vh] lg:order-2 lg:min-h-[86vh]">
+        <div className="relative order-1 min-h-[52vh] lg:order-2 lg:min-h-[clamp(560px,80vh,820px)]">
           <img
             src={heroImage}
             alt="Vista de uma cidade italiana histórica ao entardecer, com cúpula e telhados de terracota"
