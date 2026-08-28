@@ -188,8 +188,17 @@
   line-height: 1.4;
 }
 
+/* Editorial photo caption */
+@utility caption-editorial {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  font-style: italic;
+}
+
 /* Reading column for article-like content: 680–760px */
 @utility reading-column {
+
   max-width: 44rem;
   margin-inline: auto;
 }
