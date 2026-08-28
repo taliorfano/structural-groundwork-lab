@@ -88,6 +88,12 @@
   --sand: oklch(0.8403 0.0337 74.7);
   --sand-foreground: oklch(0.2741 0.0047 67.6);
 
+  /* Deep Olive — immersive editorial zones (same hue family as --primary) */
+  --olive: oklch(0.3218 0.0288 127.5);
+  --olive-foreground: oklch(0.9653 0.0102 81.8);
+  --olive-muted: oklch(0.9653 0.0102 81.8 / 62%);
+
+
   --destructive: oklch(0.505 0.16 27);
   --destructive-foreground: oklch(0.9653 0.0102 81.8);
 
