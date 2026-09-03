@@ -1,66 +1,65 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 
+import { Container } from "@/components/layout/Container";
 import plannerImage from "@/assets/planner-mesa.jpg";
 
 export function PlannerSection() {
   return (
-    <section className="relative isolate overflow-hidden bg-olive text-olive-foreground">
-      <img
-        src={plannerImage}
-        alt=""
-        aria-hidden="true"
-        loading="lazy"
-        className="absolute inset-0 size-full object-cover opacity-25"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-r from-olive via-olive/90 to-olive/55"
-      />
-
-      <div className="relative mx-auto w-full max-w-[1280px] px-5 py-24 sm:px-8 md:py-32 lg:px-12">
-        <div className="max-w-2xl">
-          <div className="flex items-center gap-4">
-            <span className="h-px w-10 bg-olive-foreground/40" aria-hidden="true" />
-            <p className="label-editorial text-olive-foreground/70">Planner La Nostra Via</p>
+    <section className="bg-olive py-16 text-olive-foreground md:py-20">
+      <Container>
+        <div className="grid items-center gap-8 md:grid-cols-12 md:gap-12">
+          <div className="md:col-span-5">
+            <div className="overflow-hidden rounded-sm">
+              <img
+                src={plannerImage}
+                alt="Caderno de viagem, mapa e xícara sobre uma mesa de madeira"
+                loading="lazy"
+                width={820}
+                height={615}
+                className="aspect-[4/3] w-full object-cover"
+              />
+            </div>
           </div>
 
-          <h2 className="text-h2 mt-7 max-w-[12ch]">
-            Do sonho
-            <br />
-            ao caminho.
-          </h2>
+          <div className="md:col-span-6 md:col-start-7">
+            <div className="flex items-center gap-4">
+              <span className="h-px w-10 bg-olive-foreground/40" aria-hidden="true" />
+              <p className="label-editorial text-olive-foreground/70">Planner</p>
+            </div>
 
-          <p className="text-body-lg mt-8 max-w-[42ch] text-olive-foreground/80">
-            Quando a inspiração vira decisão, o Planner organiza sua viagem no mesmo
-            espírito da nossa curadoria: com calma, contexto e atenção ao que importa
-            para você.
-          </p>
+            <h2 className="text-h2 mt-4 max-w-[12ch]">Sua viagem começa aqui.</h2>
 
-          <ul className="mt-10 grid gap-4 border-t border-olive-foreground/20 pt-7 sm:grid-cols-3">
-            {[
-              "Roteiros construídos a partir dos 5 Caminhos.",
-              "Ritmo, distâncias e tempo real de cada dia.",
-              "Do planejamento à memória, em um só lugar.",
-            ].map((item, i) => (
-              <li key={item} className="text-meta text-olive-foreground/80">
-                <span className="label-editorial block text-olive-foreground/50">
-                  {`0${i + 1}`}
-                </span>
-                <span className="mt-1.5 block">{item}</span>
-              </li>
-            ))}
-          </ul>
+            <p className="mt-5 max-w-[42ch] text-olive-foreground/80">
+              Quando a inspiração vira decisão, o Planner organiza sua viagem no mesmo
+              espírito da nossa curadoria: com calma, contexto e atenção ao que importa.
+            </p>
 
-          <Link
-            to="/planner"
-            className="group mt-11 inline-flex items-center gap-3 rounded-sm bg-olive-foreground px-7 py-3.5 text-meta text-olive transition-opacity duration-200 hover:opacity-90"
-          >
-            Começar a planejar
-            <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1" />
-          </Link>
+            <ul className="mt-6 grid gap-2 border-t border-olive-foreground/20 pt-5">
+              {[
+                "Roteiros construídos a partir dos 5 Caminhos.",
+                "Ritmo, distâncias e tempo real de cada dia.",
+                "Do planejamento à memória, em um só lugar.",
+              ].map((item, i) => (
+                <li key={item} className="text-meta flex gap-3 text-olive-foreground/80">
+                  <span className="label-editorial text-olive-foreground/50">
+                    {`0${i + 1}`}
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <Link
+              to="/planner"
+              className="group mt-7 inline-flex items-center gap-3 rounded-sm bg-olive-foreground px-6 py-3 text-meta text-olive transition-opacity duration-200 hover:opacity-90"
+            >
+              Conhecer o Planner
+              <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1" />
+            </Link>
+          </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
