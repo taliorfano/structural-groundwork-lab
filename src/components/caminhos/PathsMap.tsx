@@ -19,7 +19,7 @@ const paths = [
  */
 export function PathsMap() {
   return (
-    <section className="relative overflow-hidden border-t border-border bg-background py-14 md:py-20">
+    <section className="relative overflow-hidden border-t border-border bg-surface py-14 md:py-20">
       <Container>
         <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3">
           <div className="flex items-center gap-4">

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { CaminhosHero } from "@/components/caminhos/CaminhosHero";
+import { PathsMap } from "@/components/caminhos/PathsMap";
 import { NotJustDestination } from "@/components/caminhos/NotJustDestination";
 import { PathsSequence } from "@/components/caminhos/PathsSequence";
 import { PathsConnected } from "@/components/caminhos/PathsConnected";
@@ -34,6 +35,7 @@ function CaminhosPage() {
   return (
     <>
       <CaminhosHero />
+      <PathsMap />
       <NotJustDestination />
       <PathsSequence />
       <PathsConnected />
