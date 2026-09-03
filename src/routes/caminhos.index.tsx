@@ -35,6 +35,7 @@ function CaminhosPage() {
   return (
     <>
       <CaminhosHero />
+      <PathsOverview />
       <NotJustDestination />
       <PathsSequence />
       <PathsConnected />
