@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { CaminhosHero } from "@/components/caminhos/CaminhosHero";
+import { PathsIndex } from "@/components/caminhos/PathsIndex";
 import { NotJustDestination } from "@/components/caminhos/NotJustDestination";
 import { PathsSequence } from "@/components/caminhos/PathsSequence";
 import { PathsConnected } from "@/components/caminhos/PathsConnected";
