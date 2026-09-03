@@ -34,11 +34,13 @@ export function CaminhosHero() {
               </p>
             </div>
 
-            <ol className="mt-9 flex flex-wrap items-baseline gap-x-6 gap-y-2 border-t border-border pt-5">
+            <ol className="mt-9 flex flex-wrap items-baseline gap-x-7 gap-y-3 border-t border-border pt-6">
               {["História", "Sabores", "Vivências", "Conforto", "Memórias"].map((n, i) => (
                 <li key={n} className="flex items-baseline gap-2">
-                  <span className="label-editorial text-accent">{`0${i + 1}`}</span>
-                  <span className="font-display text-lg">{n}</span>
+                  <span className="label-editorial text-accent/80">{`0${i + 1}`}</span>
+                  <span className="font-display text-[clamp(1.35rem,2vw,1.75rem)] leading-none">
+                    {n}
+                  </span>
                 </li>
               ))}
             </ol>

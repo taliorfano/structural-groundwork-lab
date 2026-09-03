@@ -1,9 +1,9 @@
 import { Container } from "@/components/layout/Container";
-import historia from "@/assets/caminho-historia.jpg";
-import sabores from "@/assets/caminho-sabores.jpg";
-import vivencias from "@/assets/caminho-vivencias.jpg";
-import conforto from "@/assets/caminho-conforto.jpg";
-import memorias from "@/assets/caminho-memorias.jpg";
+import historia from "@/assets/caminho2-historia.jpg";
+import sabores from "@/assets/caminho2-sabores.jpg";
+import vivencias from "@/assets/caminho2-vivencias.jpg";
+import conforto from "@/assets/caminho2-conforto.jpg";
+import memorias from "@/assets/caminho2-memorias.jpg";
 
 type Path = {
   n: string;
@@ -54,7 +54,7 @@ const paths: Path[] = [
       "experiências gastronômicas",
     ],
     image: sabores,
-    alt: "Prato de massa fresca sobre mesa de cerâmica com luz natural",
+    alt: "Mesa compartilhada em uma pequena trattoria, pratos e cafés no fim do almoço",
     caption: "A mesa como parte do roteiro.",
   },
   {
@@ -74,7 +74,7 @@ const paths: Path[] = [
       "bairros",
     ],
     image: vivencias,
-    alt: "Vinhedo com ciprestes ao amanhecer",
+    alt: "Casal caminhando por um mercado de rua em um bairro mediterrâneo",
     caption: "Viver o destino, não apenas visitá-lo.",
   },
   {
@@ -95,7 +95,7 @@ const paths: Path[] = [
       "horários e reservas",
     ],
     image: conforto,
-    alt: "Porta de entrada de uma pequena hospedaria com vasos de plantas",
+    alt: "Família aguardando o trem na plataforma de uma pequena estação",
     caption: "O que não aparece na foto, mas muda o dia.",
   },
   {
@@ -114,7 +114,7 @@ const paths: Path[] = [
       "vale o desvio",
     ],
     image: memorias,
-    alt: "Vilarejo no alto da colina ao pôr do sol",
+    alt: "Família contemplando o vale ao pôr do sol de um mirante",
     caption: "O que continua depois da volta.",
   },
 ];
