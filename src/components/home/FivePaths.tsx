@@ -84,7 +84,7 @@ export function FivePaths() {
                 </span>
 
                 <div
-                  className={`md:col-span-5 ${reversed ? "md:order-3" : "md:order-2"}`}
+                  className={`md:col-span-6 ${reversed ? "md:order-3 md:col-start-7" : "md:order-2"}`}
                 >
                   <h3 className="font-display text-2xl leading-snug md:text-[1.75rem]">
                     {p.name}

@@ -52,7 +52,7 @@ export function Destinations() {
               <span className="h-px w-10 bg-olive-foreground/40" aria-hidden="true" />
               <p className="label-editorial text-olive-foreground/70">Destinos</p>
             </div>
-            <h2 className="text-h2 mt-4 max-w-[14ch]">Para onde o caminho leva você?</h2>
+            <h2 className="text-h2 mt-4 max-w-[14ch] text-[clamp(1.9rem,3vw,2.7rem)]">Para onde o caminho leva você?</h2>
           </div>
           <Link
             to="/destinos"
@@ -84,7 +84,7 @@ export function Destinations() {
 
         {/* Connected unit: medium image + places + action */}
         <div className="mt-8 grid gap-6 md:grid-cols-12 md:gap-10">
-          <div className="md:col-span-6">
+          <div className="md:col-span-5">
             <div className="overflow-hidden rounded-sm">
               <img
                 key={current.image}
@@ -93,7 +93,7 @@ export function Destinations() {
                 loading="lazy"
                 width={900}
                 height={640}
-                className="aspect-[5/4] w-full object-cover"
+                className="aspect-[4/3] w-full object-cover"
               />
             </div>
             <p className="caption-editorial mt-2.5 text-olive-foreground/60">
@@ -101,7 +101,7 @@ export function Destinations() {
             </p>
           </div>
 
-          <div className="md:col-span-5 md:col-start-8 md:self-center">
+          <div className="md:col-span-5 md:col-start-7 md:self-center">
             <p className="label-editorial text-olive-foreground/60">
               {current.places.length} destinos selecionados
             </p>
