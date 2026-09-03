@@ -1,6 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { PagePlaceholder } from "@/components/layout/PagePlaceholder";
+import { CaminhosHero } from "@/components/caminhos/CaminhosHero";
+import { NotJustDestination } from "@/components/caminhos/NotJustDestination";
+import { PathsSequence } from "@/components/caminhos/PathsSequence";
+import { PathsConnected } from "@/components/caminhos/PathsConnected";
+import { PathsWithYou } from "@/components/caminhos/PathsWithYou";
+import { DiscoverDestinations } from "@/components/caminhos/DiscoverDestinations";
+import { CaminhosClosing } from "@/components/caminhos/CaminhosClosing";
 
 export const Route = createFileRoute("/caminhos/")({
   head: () => ({
@@ -9,14 +15,16 @@ export const Route = createFileRoute("/caminhos/")({
       {
         name: "description",
         content:
-          "História, Sabores, Vivências, Conforto e Memórias: o método de curadoria da La Nostra Via para descobrir um destino.",
+          "História, Sabores, Vivências, Conforto e Memórias: cinco formas de descobrir um mesmo destino, a assinatura de curadoria da La Nostra Via.",
       },
       { property: "og:title", content: "5 Caminhos — La Nostra Via" },
       {
         property: "og:description",
         content:
-          "História, Sabores, Vivências, Conforto e Memórias: o método de curadoria da La Nostra Via.",
+          "Cinco caminhos. Uma viagem só sua. Conheça a metodologia de curadoria da La Nostra Via.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: CaminhosPage,
@@ -24,10 +32,14 @@ export const Route = createFileRoute("/caminhos/")({
 
 function CaminhosPage() {
   return (
-    <PagePlaceholder
-      eyebrow="Método"
-      title="5 Caminhos"
-      description="História, Sabores, Vivências, Conforto e Memórias — os cinco caminhos que guiam nossa curadoria."
-    />
+    <>
+      <CaminhosHero />
+      <NotJustDestination />
+      <PathsSequence />
+      <PathsConnected />
+      <PathsWithYou />
+      <DiscoverDestinations />
+      <CaminhosClosing />
+    </>
   );
 }
