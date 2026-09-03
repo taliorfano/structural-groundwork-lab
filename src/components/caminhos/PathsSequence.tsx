@@ -121,11 +121,11 @@ const paths: Path[] = [
 
 /** Alternating editorial panels — a sequence, not a grid of cards. */
 const layouts = [
-  { tint: "bg-surface", media: "lg:order-last", ratio: "lg:aspect-auto aspect-[4/3]" },
-  { tint: "bg-sand/25", media: "lg:order-first", ratio: "lg:aspect-auto aspect-[4/3]" },
-  { tint: "bg-surface", media: "lg:order-last", ratio: "lg:aspect-auto aspect-[3/2]" },
-  { tint: "bg-sand/25", media: "lg:order-first", ratio: "lg:aspect-auto aspect-[4/3]" },
-  { tint: "bg-surface", media: "lg:order-last", ratio: "lg:aspect-auto aspect-[3/2]" },
+  { tint: "bg-surface", media: "lg:order-2", ratio: "lg:aspect-auto aspect-[4/3]" },
+  { tint: "bg-sand/25", media: "lg:order-first lg:-order-1", ratio: "lg:aspect-auto aspect-[4/3]" },
+  { tint: "bg-surface", media: "lg:order-2", ratio: "lg:aspect-auto aspect-[3/2]" },
+  { tint: "bg-sand/25", media: "lg:order-first lg:-order-1", ratio: "lg:aspect-auto aspect-[4/3]" },
+  { tint: "bg-surface", media: "lg:order-2", ratio: "lg:aspect-auto aspect-[3/2]" },
 ] as const;
 
 export function PathsSequence() {
@@ -186,7 +186,7 @@ export function PathsSequence() {
                   </ul>
                 </div>
 
-                <figure className={`order-1 min-w-0 lg:order-none ${l.media}`}>
+                <figure className={`order-1 min-w-0 ${l.media}`}>
                   <img
                     src={p.image}
                     alt={p.alt}
