@@ -119,13 +119,13 @@ const paths: Path[] = [
   },
 ];
 
-/** Alternating, unequal compositions — a sequence, not a grid of cards. */
+/** Alternating editorial panels — a sequence, not a grid of cards. */
 const layouts = [
-  { text: "md:col-span-5 md:col-start-2", media: "md:col-span-4 md:col-start-8", ratio: "aspect-[4/5]" },
-  { text: "md:col-span-5 md:col-start-7", media: "md:col-span-4 md:col-start-2 md:row-start-1", ratio: "aspect-[3/2]" },
-  { text: "md:col-span-4 md:col-start-2", media: "md:col-span-6 md:col-start-7", ratio: "aspect-[16/10]" },
-  { text: "md:col-span-5 md:col-start-8", media: "md:col-span-3 md:col-start-4 md:row-start-1", ratio: "aspect-square" },
-  { text: "md:col-span-5 md:col-start-2", media: "md:col-span-5 md:col-start-8", ratio: "aspect-[5/4]" },
+  { tint: "bg-surface", media: "lg:order-last", ratio: "lg:aspect-auto aspect-[4/3]" },
+  { tint: "bg-sand/25", media: "lg:order-first", ratio: "lg:aspect-auto aspect-[4/3]" },
+  { tint: "bg-surface", media: "lg:order-last", ratio: "lg:aspect-auto aspect-[3/2]" },
+  { tint: "bg-sand/25", media: "lg:order-first", ratio: "lg:aspect-auto aspect-[4/3]" },
+  { tint: "bg-surface", media: "lg:order-last", ratio: "lg:aspect-auto aspect-[3/2]" },
 ] as const;
 
 export function PathsSequence() {
@@ -133,7 +133,7 @@ export function PathsSequence() {
     <section className="py-16 md:py-24">
       <Container>
         <div className="grid gap-4 md:grid-cols-12 md:items-end">
-          <div className="md:col-span-6 md:col-start-2">
+          <div className="md:col-span-7">
             <div className="flex items-center gap-4">
               <span className="h-px w-10 bg-accent/70" aria-hidden="true" />
               <p className="label-editorial text-accent">Os cinco caminhos</p>
@@ -144,63 +144,57 @@ export function PathsSequence() {
           </div>
         </div>
 
-        <div className="mt-12 divide-y divide-border border-t border-border">
+        <div className="mt-12 space-y-6 md:space-y-8">
           {paths.map((p, i) => {
             const l = layouts[i]!;
             return (
               <article
                 key={p.name}
-                className="grid gap-6 py-12 md:grid-cols-12 md:gap-x-10 md:py-16"
+                className={`grid overflow-hidden rounded-sm ${l.tint} lg:grid-cols-[minmax(0,15rem)_minmax(0,1fr)_minmax(0,15rem)_minmax(0,20rem)]`}
               >
-                <div className={`min-w-0 ${l.text}`}>
-                  <div className="flex items-baseline gap-3">
-                    <span className="font-display text-3xl leading-none text-accent/80">
-                      {p.n}
-                    </span>
-                    <h3 className="font-display text-[clamp(1.6rem,2.6vw,2.2rem)] leading-tight">
-                      {p.name}
-                    </h3>
-                  </div>
+                <div className="order-2 px-6 pb-8 pt-8 sm:px-8 lg:order-none lg:py-12 lg:pl-10 lg:pr-4">
+                  <span className="font-display block text-4xl leading-none text-accent/80">
+                    {p.n}
+                  </span>
+                  <h3 className="font-display mt-2 text-[clamp(1.5rem,2.2vw,2rem)] uppercase tracking-[0.05em] text-primary">
+                    {p.name}
+                  </h3>
+                  <span
+                    aria-hidden="true"
+                    className="mt-5 block h-px w-8 bg-accent/50"
+                  />
+                  <p className="mt-5 max-w-[24ch] text-muted-foreground">{p.claim}</p>
+                </div>
 
-                  <p className="font-display mt-4 max-w-[26ch] text-[clamp(1.2rem,2vw,1.6rem)] leading-[1.3] text-muted-foreground">
-                    {p.claim}
-                  </p>
+                <div className="order-3 space-y-3.5 px-6 pb-8 text-muted-foreground sm:px-8 lg:order-none lg:px-6 lg:py-12">
+                  {p.body.map((t) => (
+                    <p key={t}>{t}</p>
+                  ))}
+                </div>
 
-                  <div className="mt-5 max-w-[46ch] space-y-3.5 text-muted-foreground">
-                    {p.body.map((t) => (
-                      <p key={t}>{t}</p>
-                    ))}
-                  </div>
-
-                  <p className="label-editorial mt-7 text-foreground/60">
-                    Você pode encontrar
-                  </p>
-                  <ul className="mt-3 flex flex-wrap gap-x-2 gap-y-2">
+                <div className="order-4 px-6 pb-10 sm:px-8 lg:order-none lg:px-6 lg:py-12">
+                  <p className="label-editorial text-foreground/60">Você pode encontrar</p>
+                  <ul className="mt-3 space-y-1.5 text-muted-foreground">
                     {p.items.map((item) => (
-                      <li
-                        key={item}
-                        className="text-meta rounded-full border border-border px-3 py-1 text-muted-foreground"
-                      >
-                        {item}
+                      <li key={item} className="text-meta flex gap-2">
+                        <span aria-hidden="true" className="text-accent/70">
+                          •
+                        </span>
+                        <span>{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <figure className={`min-w-0 ${l.media}`}>
-                  <div className="overflow-hidden rounded-sm">
-                    <img
-                      src={p.image}
-                      alt={p.alt}
-                      loading="lazy"
-                      width={900}
-                      height={900}
-                      className={`w-full object-cover ${l.ratio}`}
-                    />
-                  </div>
-                  <figcaption className="caption-editorial mt-2.5 text-muted-foreground">
-                    {p.caption}
-                  </figcaption>
+                <figure className={`order-1 min-w-0 lg:order-none ${l.media}`}>
+                  <img
+                    src={p.image}
+                    alt={p.alt}
+                    loading="lazy"
+                    width={900}
+                    height={900}
+                    className={`size-full w-full object-cover ${l.ratio}`}
+                  />
                 </figure>
               </article>
             );
