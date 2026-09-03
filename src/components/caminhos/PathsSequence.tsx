@@ -1,9 +1,9 @@
 import { Container } from "@/components/layout/Container";
-import historia from "@/assets/caminho-historia.jpg";
-import sabores from "@/assets/caminho-sabores.jpg";
-import vivencias from "@/assets/caminho-vivencias.jpg";
-import conforto from "@/assets/caminho-conforto.jpg";
-import memorias from "@/assets/caminho-memorias.jpg";
+import historia from "@/assets/caminho2-historia.jpg";
+import sabores from "@/assets/caminho2-sabores.jpg";
+import vivencias from "@/assets/caminho2-vivencias.jpg";
+import conforto from "@/assets/caminho2-conforto.jpg";
+import memorias from "@/assets/caminho2-memorias.jpg";
 
 type Path = {
   n: string;
