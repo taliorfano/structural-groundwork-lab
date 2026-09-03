@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { Hero } from "@/components/home/Hero";
-import { ValuesStrip } from "@/components/home/ValuesStrip";
+import { Manifesto } from "@/components/home/Manifesto";
 import { FivePaths } from "@/components/home/FivePaths";
 import { Destinations } from "@/components/home/Destinations";
+import { EditorialPause } from "@/components/home/EditorialPause";
 import { Inspirations } from "@/components/home/Inspirations";
 import { PlannerSection } from "@/components/home/PlannerSection";
 import { BrandStory } from "@/components/home/BrandStory";
@@ -33,9 +34,10 @@ function Index() {
   return (
     <>
       <Hero />
-      <ValuesStrip />
+      <Manifesto />
       <FivePaths />
       <Destinations />
+      <EditorialPause />
       <Inspirations />
       <PlannerSection />
       <BrandStory />
